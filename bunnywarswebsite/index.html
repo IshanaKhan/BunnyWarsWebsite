@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunny War Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>      
+    <div id="gameContainer">
+        <canvas id="bgCanvas" width="1300" height="600"></canvas>
+        <div id = "menuBox">
+            <img src="./assets/bunny_icon.png" alt="Bunny Icon" id="bunnyIcon">
+            <h2>Menu</h2>
+            <button id="startBtn">Start Game</button>
+            <button id="shopBtn">Shop</button>
+            <button id="exitBtn">Exit</button>
+        </div>
+        <div id="dungeonMenuBox" class="menu-box" style="display:none;">
+            <h2>Choose a Level</h2>
+            <button id="level1Btn">Level 1</button>
+            <button id="level2Btn">Level 2</button>
+            <button id="level3Btn">Level 3</button>
+            <button id="bossBtn">Boss Battle</button>
+            <button id="exitDungeonBtn">Back to Menu</button>
+        </div>
+        
+        <div id="shopMenuBox" class="menu-box" style="display:none;">
+            <h2>Bunny Shop</h2>
+            <h4>Coins: <span id="currentCoins"></span></h4>
+            <h4>Damage: <span id ="currentDamage"></span></h4>
+            <h4>Protection: <span id ="currentProtection"></span></h4>
+            <button id="buyWeaponBtn">Buy Weapons</button>
+            <button id="buyShieldBtn">Buy Shields</button>
+            <button id="exitShopBtn">Exit Shop</button>
+        </div>
+        <div id="weaponMenu" class="menu-box" style="display:none;">
+            <h3>Choose Your Weapon</h3>
+            <div class="shop-item">
+              <img id="weapon1Img" class="weapon-icon" src="./assets/carved_bun_katana.png" alt="Carved Bun Katana" />
+              <button id="weapon1">Carved Bun Katana - 100 coins (+10 damage)</button>
+            </div>
+        
+            <div class="shop-item">
+                <img id="weapon2Img" class="weapon-icon" src="./assets/carrot_slicer.png" alt="Carrot Slicer" />
+                <button id="weapon2">Carrot Slicer - 200 coins (+20 damage)</button>
+            </div>
+        
+            <div class="shop-item">
+                <img id="weapon3Img" class="weapon-icon" src="./assets/teeth_splitter.png" alt="Teeth Splitter" />
+                <button id="weapon3">Teeth Splitter - 300 coins (+30 damage)</button>
+            </div>
+            <div>
+                <button id="weaponBackBtn">Back to Shop</button>
+            </div>
+        </div>
+        <div id="shieldMenu" class="menu-box" style="display:none;">
+            <h3>Choose Your Shield</h3>
+            <div class="shop-item">
+                <img id="shield1Img" class="shield-icon" src="./assets/baneful_bun.png" alt="Baneful Bun" />
+                <button id="shield1">Baneful Bun - 100 coins (+10 protection)</button>
+            </div>
+        
+            <div class="shop-item">
+                <img id="shield2Img" class="shield-icon" src="./assets/wall_of_carrots.png" alt="Wall of Carrots" />
+                <button id="shield2">Wall of Carrots - 200 coins (+20 protection)</button>
+            </div>
+        
+            <div class="shop-item">
+                <img id="shield3Img" class="shield-icon" src="./assets/eternal_rabbit.png" alt="Eternal Rabbit" />
+                <button id="shield3">Eternal Rabbit - 300 coins (+30 protection)</button>
+            </div>
+        
+            <button id="shieldBackBtn">Back to Shop</button>
+        </div>
+    </div>
+    <div id="timer-container">
+        <div id="timer-bar"><div id="timer-progress"></div></div>
+        <span id="timer-text">10</span>s
+    </div>
+    <!-- HP Display with Animated Numbers and Damage Popup -->
+    <div id="hpDisplayContainer">
+      <div id="playerHPBox" class="hp-box">
+        🐰 HP: <span id="playerHPText"></span>
+        <span id="playerDamagePopup" class="damage-popup"></span>
+      </div>
+      <div id="enemyHPBox" class="hp-box">
+        😈 HP: <span id="enemyHPText"></span>
+        <span id="enemyDamagePopup" class="damage-popup"></span>
+      </div>
+    </div>
+    <div id="answerDisplayContainer">
+      <input type="text" id="game-input" placeholder="Enter your choice...">
+      <button id="submit-button">Submit</button>
+    </div>
+
+
+    <!-- Include utils.js first -->
+    <script src="utils.js"></script>
+    <script src="Player.js"></script>
+    <script src="Game.js"></script>
+    <script src="GraphicsManager.js"></script>
+    <script src="Dungeon.js"></script>  
+    <script src="Shop.js"></script>
+    <script src="ScreenVisuals.js"></script>
+    <script src="BunnyWarGame.js"></script>
+    <script>
+        // Start the game
+        BunnyWarGame.main();
+    </script>
+</body>
+</html>
